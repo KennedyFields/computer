@@ -7,7 +7,7 @@ function nextBracket {
   echo "$delta more dollars untill the next bracket"
 } 
 
-read -p "what is your federal adjusted gross fagi?" fagi
+read -p "what is your federal adjusted gross income?" fagi
 
 if [ $fagi -le 9275 ]; then  nextBracket $fagi 9275 10
 elif [ $fagi -le 37650 ] && [ $fagi -gt 9276 ]; then nextBracket $fagi 37650 15   
