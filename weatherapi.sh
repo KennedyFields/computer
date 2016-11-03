@@ -8,14 +8,14 @@ read weatherapi_key <<< $(cat weatherapi_key)
 
 for i in $(seq 1 $samples); do
 
-  read date temp humidity <<< \
+  read epoch temp humidity <<< \
     $(curl -s "http://api.openweathermap.org/data/2.5/weather?q=Minneapolis,us&units=imperial&APPID=$weatherapi_key" | \
     jq '.dt,.main.temp,.main.humidity')
 
-  if [ $date -gt 1477570797 ]; then
-    read datetime <<<$(date -d @$date +'%m/%d/%Y %H:%M')
-    echo "$epochtime temp=$temp humidity=$humidity"
-    echo $epochtime,$temp,$humidity >> /tmp/weather_data.csv
+  if [ $epoch -gt 1477570797 ]; then
+    read datetime <<<$(date -d @$epoch +'%m/%d/%Y %H:%M')
+    echo "$datetime temp=$temp humidity=$humidity"
+    echo $datetime,$temp,$humidity >> /tmp/weather_data.csv
   else 
     echo "$(date +'%m/%d/%Y %H:%M') bad sample"
   fi
