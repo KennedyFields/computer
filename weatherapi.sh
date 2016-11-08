@@ -1,10 +1,8 @@
-#!/bin/bash
-  $1 "How many days of samples: "               days 
-  $2 "N) New sample or A) Append to previous: " file_op 
+!/bin/bash
+  days=$1 
+  file_op=$2 
 
-nohup ./weatherapi.sh 1 N >~/tmp/weatherapi.out 2>&1 &
-
-if [ "$file_op" == "N" ]; then rm -f tmp/weatherapi.sh; fi
+if [ "$file_op" == "N" ]; then rm -f ~/tmp/weather_data.csv; fi
 read samples <<< $(($days*24))
 read weatherapi_key <<< $(cat weatherapi_key)
 
@@ -22,5 +20,5 @@ for i in $(seq 1 $samples); do
     echo "$(date +'%m/%d/%Y %H:%M') bad sample"
   fi
 
-  sleep 60
+  sleep 30m
 done
