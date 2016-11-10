@@ -20,5 +20,5 @@ for i in $(seq 1 $samples); do
     echo "$(date +'%m/%d/%Y %H:%M') bad sample"
   fi
 
-  sleep 30m
+  sleep 1800
 done
