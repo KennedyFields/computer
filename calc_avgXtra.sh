@@ -1,6 +1,11 @@
+function average {
+    echo average $(echo "scale=1 ; $sum /  " | bc)
+}
 
+function number {
+  echo $(read -p "Enter a number, DONE when done: ")    
+}
 
-read -p "enter numbers"  numbers
+  number
+  read -p "Enter number: "     numberB
 
-sum=$((numbers))
-echo "average $average"
