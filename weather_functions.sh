@@ -34,6 +34,10 @@ for temp in $(seq 0 $samples); do
   sum=$(echo "$sum + ${temp_array[$temp]}"|bc)
 done
 
+#echo "$date ${temp_arrau[$date]}" 
+echo " first date = $(head -n 1 ~/tmp/weather_data.csv | awk -F',' '{ print $1 }')"
+echo " last date = $(tail -n 1 ~/tmp/weather_data.csv | awk -F',' '{ print $1 }')"
+
 echo "sum $sum"
 echo "data points ${#temp_array[@]}"
 echo average $(echo "scale=5 ; $sum / ${#temp_array[@]}" | bc)
