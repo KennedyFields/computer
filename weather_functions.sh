@@ -35,6 +35,7 @@ for temp in $(seq 0 $samples); do
 done
 
 #echo "$date ${temp_arrau[$date]}" 
+echo "Computer Programming Fundamentals"
 echo " first date = $(head -n 1 ~/tmp/weather_data.csv | awk -F',' '{ print $1 }')"
 echo " last date = $(tail -n 1 ~/tmp/weather_data.csv | awk -F',' '{ print $1 }')"
 
