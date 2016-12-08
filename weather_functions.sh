@@ -38,6 +38,7 @@ done
 echo " first date = $(head -n 1 ~/tmp/weather_data.csv | awk -F',' '{ print $1 }')"
 echo " last date = $(tail -n 1 ~/tmp/weather_data.csv | awk -F',' '{ print $1 }')"
 
+echo "Fundamentals of Computer Programing "
 echo "sum $sum"
 echo "data points ${#temp_array[@]}"
 echo average $(echo "scale=5 ; $sum / ${#temp_array[@]}" | bc)
